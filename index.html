@@ -104,6 +104,7 @@
   .btn:hover{transform:translateY(-2px);}
   .btn-primary{background:var(--teal-deep);color:#fff;}
   .btn-outline{border:1px solid var(--teal-deep);color:var(--teal-deep);}
+  .btn-sm{padding:9px 20px;font-size:13px;}
   .hero .btn-primary{background:#fff;color:var(--teal-deep);}
   .hero .btn-outline{border-color:rgba(255,255,255,.8);color:#fff;}
 
@@ -245,15 +246,10 @@
   .hours-title{
     font-size:12px;color:var(--gold-text);letter-spacing:.1em;margin-bottom:12px;display:block;font-weight:700;
   }
-  .hours-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;}
-  @media(max-width:480px){ .hours-grid{grid-template-columns:repeat(4,1fr);} }
-  .hours-grid .day{
-    background:var(--teal-deep);color:#fff;border-radius:10px;
-    padding:12px 2px;text-align:center;
-  }
-  .hours-grid .day.closed{background:#b24a43;}
-  .hours-grid .day .d{font-size:13px;font-weight:800;margin-bottom:8px;}
-  .hours-grid .day .t{font-size:10px;line-height:1.5;letter-spacing:-.02em;}
+  .hours-table{width:100%;font-size:15px;border-collapse:collapse;}
+  .hours-table td{padding:9px 0;border-bottom:1px dashed #d8cdb0;font-weight:700;}
+  .hours-table td:first-child{color:var(--teal-deep);width:60px;font-weight:800;}
+  .hours-table tr.closed td{color:#b24a43;}
   .hours-note{font-size:12px;color:var(--text-soft);margin-top:14px;}
   .map-box{
     margin-top:24px;border-radius:18px;overflow:hidden;
@@ -455,15 +451,15 @@
       </div>
       <div class="info-box">
         <span class="hours-title">営業時間</span>
-        <div class="hours-grid">
-          <div class="day"><div class="d">月</div><div class="t">10:30<br>〜22:00</div></div>
-          <div class="day"><div class="d">火</div><div class="t">10:30<br>〜22:00</div></div>
-          <div class="day"><div class="d">水</div><div class="t">10:30<br>〜22:00</div></div>
-          <div class="day closed"><div class="d">木</div><div class="t">定休日</div></div>
-          <div class="day"><div class="d">金</div><div class="t">10:30<br>〜22:00</div></div>
-          <div class="day"><div class="d">土</div><div class="t">10:30<br>〜22:00</div></div>
-          <div class="day"><div class="d">日</div><div class="t">10:30<br>〜22:00</div></div>
-        </div>
+        <table class="hours-table">
+          <tr><td>月</td><td>10:30 〜 22:00</td></tr>
+          <tr><td>火</td><td>10:30 〜 22:00</td></tr>
+          <tr><td>水</td><td>10:30 〜 22:00</td></tr>
+          <tr class="closed"><td>木</td><td>定休日</td></tr>
+          <tr><td>金</td><td>10:30 〜 22:00</td></tr>
+          <tr><td>土</td><td>10:30 〜 22:00</td></tr>
+          <tr><td>日</td><td>10:30 〜 22:00</td></tr>
+        </table>
         <p class="hours-note">完全予約制・当日のご予約もOK。出張施術は無休で対応しております。</p>
       </div>
     </div>
@@ -486,14 +482,12 @@
       <a class="btn btn-outline" href="https://lin.ee/MO9ZdQy" target="_blank" rel="noopener">LINE公式で予約</a>
       <a class="btn btn-outline" href="https://www.instagram.com/tbsmint/" target="_blank" rel="noopener">Instagram</a>
     </div>
-    <p style="font-size:12px;color:#cfe3dc;margin-top:22px;">
-      その他の掲載ページ：
-      <a href="https://www.ekiten.jp/shop_55750135/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">エキテン</a>
-      ／
-      <a href="https://okigaru.link/introduce/%E3%83%88%E3%83%BC%E3%82%BF%E3%83%AB%E3%83%9C%E3%83%87%E3%82%A3%E3%82%B1%E3%82%A2%E3%82%B5%E3%83%AD%E3%83%B3mint/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">OKIGARU</a>
-      ／
-      <a href="https://www.facebook.com/people/%E3%83%88%E3%83%BC%E3%82%BF%E3%83%AB%E3%83%9C%E3%83%87%E3%82%A3%E3%82%B1%E3%82%A2%E3%82%B5%E3%83%AD%E3%83%B3mint/100063155054819/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">Facebook</a>
-    </p>
+    <p style="font-size:13px;color:#cfe3dc;margin-top:30px;margin-bottom:14px;letter-spacing:.05em;">その他の掲載ページ</p>
+    <div class="cta-row">
+      <a class="btn btn-outline btn-sm" href="https://www.ekiten.jp/shop_55750135/" target="_blank" rel="noopener">エキテン</a>
+      <a class="btn btn-outline btn-sm" href="https://okigaru.link/introduce/%E3%83%88%E3%83%BC%E3%82%BF%E3%83%AB%E3%83%9C%E3%83%87%E3%82%A3%E3%82%B1%E3%82%A2%E3%82%B5%E3%83%AD%E3%83%B3mint/" target="_blank" rel="noopener">OKIGARU</a>
+      <a class="btn btn-outline btn-sm" href="https://www.facebook.com/people/%E3%83%88%E3%83%BC%E3%82%BF%E3%83%AB%E3%83%9C%E3%83%87%E3%82%A3%E3%82%B1%E3%82%A2%E3%82%B5%E3%83%AD%E3%83%B3mint/100063155054819/" target="_blank" rel="noopener">Facebook</a>
+    </div>
     <p class="copyright">トータルボディケアサロン&出張施術Mint ― このページはご提案用の試作デザインです</p>
   </div>
 </footer>
