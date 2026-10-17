@@ -114,6 +114,8 @@
   .section-title h2{
     font-size:25px;color:var(--teal-deep);font-weight:800;letter-spacing:-.01em;
   }
+  .section-title.on-dark .en{color:var(--gold);}
+  .section-title.on-dark h2{color:#fff;}
 
   /* お悩み */
   .concern-grid{
@@ -144,12 +146,27 @@
   }
 
   /* About */
-  .about-box{
-    background:#fff;border:1px solid #ece3cd;border-radius:18px;
-    padding:38px 34px;text-align:center;
+  .about-wrap{
+    display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;
   }
-  .about-box p{color:var(--text-soft);font-size:15px;max-width:620px;margin:0 auto 14px;}
-  .about-box p:last-child{margin-bottom:0;}
+  @media(max-width:700px){ .about-wrap{grid-template-columns:1fr;} }
+  .about-copy h3{
+    font-size:21px;font-weight:800;color:var(--teal-deep);
+    letter-spacing:-.01em;margin-bottom:16px;line-height:1.6;
+  }
+  .about-copy p{color:var(--text-soft);font-size:14.5px;}
+  .reason-list{display:flex;flex-direction:column;gap:14px;}
+  .reason{
+    display:flex;align-items:flex-start;gap:16px;
+    background:#fff;border:2px solid var(--teal-light);border-radius:14px;
+    padding:18px 20px;
+  }
+  .reason .num{
+    flex:0 0 auto;width:34px;height:34px;border-radius:50%;
+    background:var(--teal-deep);color:#fff;font-weight:800;font-size:14px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .reason .txt{font-size:14.5px;font-weight:700;color:var(--text);padding-top:6px;}
 
   /* 特徴カード */
   .feature-grid{
@@ -157,16 +174,26 @@
   }
   @media(max-width:700px){ .feature-grid{grid-template-columns:repeat(2,1fr);} }
   .feature{
-    background:#fff;border:1px solid #ece3cd;border-radius:14px;
+    background:#fff;border:2px solid var(--teal-light);border-radius:14px;
     padding:24px 14px;text-align:center;
   }
   .feature .ico{
-    width:44px;height:44px;margin:0 auto 12px;border-radius:50%;
-    background:var(--teal-light);
+    width:48px;height:48px;margin:0 auto 12px;border-radius:50%;
+    background:var(--teal-deep);
     display:flex;align-items:center;justify-content:center;
-    color:var(--teal-deep);font-size:18px;
+    color:#fff;font-size:18px;font-weight:800;
   }
-  .feature .label{font-size:13px;color:var(--text);letter-spacing:.03em;}
+  .feature .label{font-size:13px;font-weight:700;color:var(--text);letter-spacing:.02em;}
+
+  /* 中間CTA帯 */
+  .cta-band{
+    background:var(--teal-deep);color:#fff;text-align:center;
+    padding:50px 24px;
+  }
+  .cta-band h3{font-size:22px;font-weight:800;margin-bottom:10px;letter-spacing:-.01em;}
+  .cta-band p{font-size:13.5px;color:#cfe3dc;margin-bottom:26px;}
+  .cta-band .btn-primary{background:#fff;color:var(--teal-deep);}
+  .cta-band .btn-outline{border-color:rgba(255,255,255,.8);color:#fff;}
 
   /* メニュー */
   .menu-table{
@@ -178,19 +205,27 @@
     gap:16px;
   }
   .menu-row:last-child{border-bottom:none;}
+  .menu-row.popular{background:var(--teal-light);}
   .menu-row .name{font-size:16px;font-weight:700;}
+  .badge-pop{
+    display:inline-block;background:var(--gold-text);color:#fff;
+    font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:999px;
+    margin-left:8px;letter-spacing:.03em;vertical-align:middle;
+  }
   .menu-row .desc{font-size:12px;color:var(--text-soft);display:block;margin-top:3px;}
-  .menu-row .price{font-size:15px;color:var(--teal-deep);white-space:nowrap;font-weight:600;}
+  .menu-row .price{font-size:17px;color:var(--teal-deep);white-space:nowrap;font-weight:800;}
 
   /* 口コミ */
   .voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
   @media(max-width:700px){ .voice-grid{grid-template-columns:1fr;} }
   .voice-card{
-    background:#fff;border:1px solid #ece3cd;border-radius:14px;padding:26px 22px;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);
+    border-radius:14px;padding:26px 22px;
   }
+  .voice-card .quote{font-size:34px;color:var(--gold);line-height:1;font-weight:800;margin-bottom:6px;}
   .voice-card .stars{color:var(--gold);font-size:13px;margin-bottom:10px;}
-  .voice-card p{font-size:13.5px;color:var(--text-soft);margin-bottom:14px;}
-  .voice-card .who{font-size:12px;color:var(--teal);letter-spacing:.05em;}
+  .voice-card p{font-size:13.5px;color:rgba(255,255,255,.92);margin-bottom:14px;}
+  .voice-card .who{font-size:12px;color:#bcd9cf;letter-spacing:.05em;}
 
   /* アクセス */
   .access-grid{
@@ -288,11 +323,17 @@
 
 <section id="about">
   <div class="wrap">
-    <div class="section-title"><span class="en">CONCEPT</span><h2>サロンについて</h2></div>
-    <div class="about-box">
-      <p>慢性的な肩こり・首こり・腰痛から、骨盤の歪み、小顔ケアまで。その場しのぎの対処ではなく、原因をしっかり見極めたうえで、お一人お一人に合った施術をご提供しています。</p>
-      <p>月に一度のメンテナンスでも十分な変化を感じていただける方が多くいらっしゃいます。お忙しい毎日を過ごす方にこそ、寄り添えるサロンでありたいと考えています。</p>
-      <p>鶴ヶ峰にて開業から7年以上、地域の皆さまに支えられてきました。サロンでの施術はもちろん、出張施術にも対応しています。</p>
+    <div class="section-title"><span class="en">CONCEPT</span><h2>選ばれる理由</h2></div>
+    <div class="about-wrap">
+      <div class="about-copy">
+        <h3>その場しのぎで終わらせない。<br>原因から向き合う本格整体。</h3>
+        <p>慢性的な肩こり・首こり・腰痛から、骨盤の歪み、小顔ケアまで。原因をしっかり見極めたうえで、お一人お一人に合った施術をご提供しています。鶴ヶ峰にて開業から7年以上、地域の皆さまに支えられてきました。</p>
+      </div>
+      <div class="reason-list">
+        <div class="reason"><div class="num">1</div><div class="txt">原因を見極める本格整体で、根本から改善</div></div>
+        <div class="reason"><div class="num">2</div><div class="txt">完全予約制だから、お一人お一人にじっくり</div></div>
+        <div class="reason"><div class="num">3</div><div class="txt">出張施術にも対応、忙しい方でも通いやすい</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -313,8 +354,8 @@
   <div class="wrap">
     <div class="section-title"><span class="en">MENU</span><h2>メニュー・料金(一例)</h2></div>
     <div class="menu-table">
-      <div class="menu-row">
-        <div><div class="name">整体コース</div><span class="desc">整体・もみほぐし・タイ古式・ドライヘッド・顔ツボ(60分)</span></div>
+      <div class="menu-row popular">
+        <div><div class="name">整体コース<span class="badge-pop">人気No.1</span></div><span class="desc">整体・もみほぐし・タイ古式・ドライヘッド・顔ツボ(60分)</span></div>
         <div class="price">¥8,800</div>
       </div>
       <div class="menu-row">
@@ -343,27 +384,41 @@
   </div>
 </section>
 
-<section id="voice" style="background:var(--teal-light);">
+<div class="cta-band">
   <div class="wrap">
-    <div class="section-title"><span class="en">VOICE</span><h2>お客様の声</h2></div>
+    <h3>当日のご予約もお電話・LINEで受付中</h3>
+    <p>「まず話を聞いてみたい」だけでも大歓迎です。お気軽にご連絡ください。</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="tel:09060218885">電話で予約 090-6021-8885</a>
+      <a class="btn btn-outline" href="https://lin.ee/MO9ZdQy" target="_blank" rel="noopener">LINEで予約</a>
+    </div>
+  </div>
+</div>
+
+<section id="voice" style="background:var(--teal-deep);">
+  <div class="wrap">
+    <div class="section-title on-dark"><span class="en">VOICE</span><h2>お客様の声</h2></div>
     <div class="voice-grid">
       <div class="voice-card">
+        <div class="quote">"</div>
         <div class="stars">★★★★★</div>
         <p>忙しい時でも、限られた時間の中でしっかり結果を出してもらえるのが心強いです。</p>
         <div class="who">― 30代女性</div>
       </div>
       <div class="voice-card">
+        <div class="quote">"</div>
         <div class="stars">★★★★★</div>
         <p>仕事帰り、夜遅くでも対応してもらえるのがありがたい。固まった身体が毎回楽になります。</p>
         <div class="who">― 40代女性</div>
       </div>
       <div class="voice-card">
+        <div class="quote">"</div>
         <div class="stars">★★★★★</div>
         <p>体の不調を丁寧に聞いてくれて、その時に合った施術を選んでくれる。安心して通えるサロンです。</p>
         <div class="who">― 30代女性</div>
       </div>
     </div>
-    <p style="text-align:center;font-size:12px;color:var(--text-soft);margin-top:18px;">※実際の口コミ内容を要約・一部改変して掲載しています。公開時はご本人了承の上、原文を使用します。</p>
+    <p style="text-align:center;font-size:12px;color:#bcd9cf;margin-top:18px;">※実際の口コミ内容を要約・一部改変して掲載しています。公開時はご本人了承の上、原文を使用します。</p>
   </div>
 </section>
 
