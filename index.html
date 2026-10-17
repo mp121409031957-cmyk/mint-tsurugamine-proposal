@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>トータルボディケアサロン&出張施術Mint【試作案】</title>
+<style>
+  :root{
+    --teal-deep:#1f5c52;
+    --teal:#2f8a76;
+    --teal-light:#e4f2ec;
+    --cream:#faf6ee;
+    --gold:#c9a227;
+    --gold-text:#8a6414;
+    --text:#2a332f;
+    --text-soft:#44504a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho",serif, -apple-system, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    background:var(--cream);
+    color:var(--text);
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px;}
+
+  /* プロトタイプ注記バナー */
+  .proto-banner{
+    background:#fff3cd;
+    color:#5c4a00;
+    text-align:center;
+    font-size:13px;
+    padding:8px 16px;
+    letter-spacing:.03em;
+  }
+
+  /* ヘッダー */
+  header{
+    position:sticky;top:0;z-index:10;
+    background:rgba(250,246,238,.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid #e3dac6;
+  }
+  .nav{
+    max-width:900px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-size:18px;letter-spacing:.08em;color:var(--teal-deep);font-weight:600;}
+  .brand .leaf{
+    width:28px;height:28px;border-radius:50%;
+    background:linear-gradient(135deg,var(--teal),var(--gold));
+    display:inline-block;
+  }
+  nav ul{list-style:none;display:flex;gap:22px;font-size:13px;}
+  nav a{color:var(--text-soft);text-decoration:none;}
+  @media(max-width:620px){ nav ul{display:none;} }
+
+  /* ヒーロー */
+  .hero{
+    padding:72px 24px 60px;
+    text-align:center;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(47,138,118,.14), transparent 55%),
+      radial-gradient(circle at 85% 0%, rgba(201,162,39,.12), transparent 50%);
+  }
+  .hero .kicker{
+    display:inline-block;
+    font-size:12px;letter-spacing:.2em;color:var(--teal);
+    border:1px solid var(--teal);border-radius:999px;
+    padding:5px 16px;margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(26px,5vw,40px);
+    color:var(--teal-deep);
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .hero p.lead{
+    font-size:15px;color:var(--text-soft);
+    max-width:480px;margin:0 auto 34px;
+  }
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 26px;border-radius:999px;
+    font-size:14px;letter-spacing:.05em;text-decoration:none;
+    transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--teal-deep);color:#fff;}
+  .btn-outline{border:1px solid var(--teal-deep);color:var(--teal-deep);}
+
+  /* セクション共通 */
+  section{padding:64px 0;}
+  .section-title{
+    text-align:center;margin-bottom:44px;
+  }
+  .section-title .en{
+    display:block;font-size:11px;letter-spacing:.3em;color:var(--gold-text);margin-bottom:8px;font-weight:600;
+  }
+  .section-title h2{
+    font-size:24px;color:var(--teal-deep);font-weight:600;
+  }
+
+  /* ギャラリー */
+  .gallery-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  }
+  @media(max-width:600px){ .gallery-grid{grid-template-columns:1fr;} }
+  .gallery-grid figure{margin:0;}
+  .gallery-grid img{
+    width:100%;height:280px;object-fit:cover;border-radius:16px;
+    display:block;border:1px solid #ece3cd;
+  }
+  .gallery-grid figcaption{
+    text-align:center;font-size:12px;color:var(--text-soft);margin-top:10px;letter-spacing:.05em;
+  }
+
+  /* About */
+  .about-box{
+    background:#fff;border:1px solid #ece3cd;border-radius:18px;
+    padding:38px 34px;text-align:center;
+  }
+  .about-box p{color:var(--text-soft);font-size:15px;max-width:620px;margin:0 auto 14px;}
+  .about-box p:last-child{margin-bottom:0;}
+
+  /* 特徴カード */
+  .feature-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+  }
+  @media(max-width:700px){ .feature-grid{grid-template-columns:repeat(2,1fr);} }
+  .feature{
+    background:#fff;border:1px solid #ece3cd;border-radius:14px;
+    padding:24px 14px;text-align:center;
+  }
+  .feature .ico{
+    width:44px;height:44px;margin:0 auto 12px;border-radius:50%;
+    background:var(--teal-light);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--teal-deep);font-size:18px;
+  }
+  .feature .label{font-size:13px;color:var(--text);letter-spacing:.03em;}
+
+  /* メニュー */
+  .menu-table{
+    background:#fff;border:1px solid #ece3cd;border-radius:18px;overflow:hidden;
+  }
+  .menu-row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:18px 28px;border-bottom:1px solid #f0ead9;
+    gap:16px;
+  }
+  .menu-row:last-child{border-bottom:none;}
+  .menu-row .name{font-size:15px;}
+  .menu-row .desc{font-size:12px;color:var(--text-soft);display:block;margin-top:3px;}
+  .menu-row .price{font-size:15px;color:var(--teal-deep);white-space:nowrap;font-weight:600;}
+
+  /* 口コミ */
+  .voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media(max-width:700px){ .voice-grid{grid-template-columns:1fr;} }
+  .voice-card{
+    background:#fff;border:1px solid #ece3cd;border-radius:14px;padding:26px 22px;
+  }
+  .voice-card .stars{color:var(--gold);font-size:13px;margin-bottom:10px;}
+  .voice-card p{font-size:13.5px;color:var(--text-soft);margin-bottom:14px;}
+  .voice-card .who{font-size:12px;color:var(--teal);letter-spacing:.05em;}
+
+  /* アクセス */
+  .access-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:28px;
+    background:#fff;border:1px solid #ece3cd;border-radius:18px;padding:34px;
+  }
+  @media(max-width:700px){ .access-grid{grid-template-columns:1fr;} }
+  .access-grid dt{font-size:12px;color:var(--gold-text);letter-spacing:.1em;margin-bottom:4px;font-weight:600;}
+  .access-grid dd{font-size:14px;margin-bottom:20px;color:var(--text);}
+  .hours-table{width:100%;font-size:13px;border-collapse:collapse;}
+  .hours-table td{padding:5px 0;border-bottom:1px dashed #e8e0cc;}
+  .hours-table td:first-child{color:var(--text-soft);width:70px;}
+  .hours-table tr.closed td{color:#c0564f;}
+  .map-box{
+    margin-top:24px;border-radius:18px;overflow:hidden;
+    border:1px solid #ece3cd;
+  }
+  .map-box iframe{display:block;}
+
+  /* フッターCTA */
+  footer{
+    background:var(--teal-deep);color:#fdfaf2;text-align:center;
+    padding:56px 24px 40px;
+  }
+  footer h3{font-size:20px;margin-bottom:12px;letter-spacing:.05em;}
+  footer p{font-size:13px;color:#cfe3dc;margin-bottom:26px;}
+  footer .btn-primary{background:#fff;color:var(--teal-deep);}
+  footer .btn-outline{border-color:#fff;color:#fff;}
+  .copyright{font-size:11px;color:#8fb3a8;margin-top:36px;}
+</style>
+</head>
+<body>
+
+<div class="proto-banner">
+  これは営業ご提案用の試作デザインです(エキテン掲載の写真を一部お借りしています)。ご了承いただけましたら、より良い写真に差し替えて正式に公開します。
+</div>
+
+<header>
+  <div class="nav wrap">
+    <div class="brand"><span class="leaf"></span>Mint</div>
+    <nav>
+      <ul>
+        <li><a href="#about">サロンについて</a></li>
+        <li><a href="#menu">メニュー</a></li>
+        <li><a href="#voice">お客様の声</a></li>
+        <li><a href="#access">アクセス</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="kicker">YOKOHAMA / TSURUGAMINE</span>
+    <h1>一つでも多くの<br class="sp">ご要望を叶えるサロン</h1>
+    <p class="lead">トータルボディケアサロン&出張施術Mint<br>整体・骨格矯正・小顔ケア・アロマリンパまで、<br>お身体とお心のお悩みにひとつずつ向き合います。</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="tel:09060218885">電話で予約 090-6021-8885</a>
+      <a class="btn btn-outline" href="https://lin.ee/MO9ZdQy" target="_blank" rel="noopener">LINEで予約</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="gallery-grid">
+      <figure>
+        <img src="images/salon-exterior.jpeg" alt="サロン入口の様子">
+        <figcaption>サロン入口</figcaption>
+      </figure>
+      <figure>
+        <img src="images/salon-bed.jpeg" alt="施術スペースの様子">
+        <figcaption>施術スペース</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-title"><span class="en">CONCEPT</span><h2>サロンについて</h2></div>
+    <div class="about-box">
+      <p>慢性的な肩こり・首こり・腰痛から、骨盤の歪み、小顔ケアまで。その場しのぎの対処ではなく、原因をしっかり見極めたうえで、お一人お一人に合った施術をご提供しています。</p>
+      <p>月に一度のメンテナンスでも十分な変化を感じていただける方が多くいらっしゃいます。お忙しい毎日を過ごす方にこそ、寄り添えるサロンでありたいと考えています。</p>
+      <p>鶴ヶ峰にて開業から7年以上、地域の皆さまに支えられてきました。サロンでの施術はもちろん、出張施術にも対応しています。</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--teal-light);">
+  <div class="wrap">
+    <div class="section-title"><span class="en">FEATURES</span><h2>Mintの特徴</h2></div>
+    <div class="feature-grid">
+      <div class="feature"><div class="ico">予</div><div class="label">完全予約制でゆったり施術</div></div>
+      <div class="feature"><div class="ico">出</div><div class="label">出張施術対応(神奈川県内)</div></div>
+      <div class="feature"><div class="ico">駐</div><div class="label">駐車場あり</div></div>
+      <div class="feature"><div class="ico">安</div><div class="label">女性オーナー・LGBTQフレンドリー</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="section-title"><span class="en">MENU</span><h2>メニュー・料金(一例)</h2></div>
+    <div class="menu-table">
+      <div class="menu-row">
+        <div><div class="name">美容整体</div><span class="desc">骨格・骨盤の歪みを整え、スタイルアップへ</span></div>
+        <div class="price">¥6,600〜</div>
+      </div>
+      <div class="menu-row">
+        <div><div class="name">整顔矯正(小顔ケア)</div><span class="desc">顔のむくみ・歪みにアプローチ</span></div>
+        <div class="price">価格は要問合せ</div>
+      </div>
+      <div class="menu-row">
+        <div><div class="name">オイルリンパボディ</div><span class="desc">全身のだるさ・むくみをケア</span></div>
+        <div class="price">価格は要問合せ</div>
+      </div>
+      <div class="menu-row">
+        <div><div class="name">タイ古式・ヘッドケア</div><span class="desc">じっくりほぐす本格施術</span></div>
+        <div class="price">価格は要問合せ</div>
+      </div>
+      <div class="menu-row">
+        <div><div class="name">スマートケア(時短)</div><span class="desc">スキマ時間に、滞在時間から選べる</span></div>
+        <div class="price">¥1,100〜</div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:12px;color:var(--text-soft);margin-top:16px;">※掲載中の価格・メニュー名は要確認の仮情報です。正式公開前に最新のものへ差し替えます。</p>
+  </div>
+</section>
+
+<section id="voice" style="background:var(--teal-light);">
+  <div class="wrap">
+    <div class="section-title"><span class="en">VOICE</span><h2>お客様の声</h2></div>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <div class="stars">★★★★★</div>
+        <p>忙しい時でも、限られた時間の中でしっかり結果を出してもらえるのが心強いです。</p>
+        <div class="who">― 30代女性</div>
+      </div>
+      <div class="voice-card">
+        <div class="stars">★★★★★</div>
+        <p>仕事帰り、夜遅くでも対応してもらえるのがありがたい。固まった身体が毎回楽になります。</p>
+        <div class="who">― 40代女性</div>
+      </div>
+      <div class="voice-card">
+        <div class="stars">★★★★★</div>
+        <p>体の不調を丁寧に聞いてくれて、その時に合った施術を選んでくれる。安心して通えるサロンです。</p>
+        <div class="who">― 30代女性</div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:12px;color:var(--text-soft);margin-top:18px;">※実際の口コミ内容を要約・一部改変して掲載しています。公開時はご本人了承の上、原文を使用します。</p>
+  </div>
+</section>
+
+<section id="access">
+  <div class="wrap">
+    <div class="section-title"><span class="en">ACCESS</span><h2>アクセス・営業時間</h2></div>
+    <div class="access-grid">
+      <div>
+        <dl>
+          <dt>住所</dt>
+          <dd>〒241-0022<br>神奈川県横浜市旭区鶴ケ峰1丁目7-10<br>3階 RoomA(水色扉)</dd>
+          <dt>アクセス</dt>
+          <dd>相鉄線 鶴ケ峰駅より徒歩6分</dd>
+          <dt>お電話</dt>
+          <dd>090-6021-8885(完全予約制)</dd>
+        </dl>
+      </div>
+      <div>
+        <dt style="color:var(--gold-text);font-size:12px;letter-spacing:.1em;margin-bottom:10px;display:block;font-weight:600;">営業時間</dt>
+        <table class="hours-table">
+          <tr><td>月</td><td>10:30 〜 22:00</td></tr>
+          <tr><td>火</td><td>10:30 〜 22:00</td></tr>
+          <tr><td>水</td><td>10:30 〜 22:00</td></tr>
+          <tr class="closed"><td>木</td><td>定休日</td></tr>
+          <tr><td>金</td><td>10:30 〜 22:00</td></tr>
+          <tr><td>土</td><td>10:30 〜 22:00</td></tr>
+          <tr><td>日</td><td>10:30 〜 22:00</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="map-box">
+      <iframe
+        src="https://www.google.com/maps?q=35.4733012,139.545582&z=17&output=embed"
+        width="100%" height="320" style="border:0;" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="トータルボディケアサロン&出張施術Mint 地図"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h3>ご予約・お問い合わせ</h3>
+    <p>完全予約制となっております。お気軽にご連絡ください。</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="tel:09060218885">電話で予約する</a>
+      <a class="btn btn-outline" href="https://lin.ee/MO9ZdQy" target="_blank" rel="noopener">LINE公式で予約</a>
+      <a class="btn btn-outline" href="https://www.instagram.com/tbsmint/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <p style="font-size:12px;color:#cfe3dc;margin-top:22px;">
+      その他の掲載ページ：
+      <a href="https://www.ekiten.jp/shop_55750135/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">エキテン</a>
+      ／
+      <a href="https://okigaru.link/introduce/%E3%83%88%E3%83%BC%E3%82%BF%E3%83%AB%E3%83%9C%E3%83%87%E3%82%A3%E3%82%B1%E3%82%A2%E3%82%B5%E3%83%AD%E3%83%B3mint/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">OKIGARU</a>
+    </p>
+    <p class="copyright">トータルボディケアサロン&出張施術Mint ― このページはご提案用の試作デザインです</p>
+  </div>
+</footer>
+
+</body>
+</html>
