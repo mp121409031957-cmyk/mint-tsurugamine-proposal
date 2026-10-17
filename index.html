@@ -57,28 +57,38 @@
 
   /* ヒーロー */
   .hero{
-    padding:72px 24px 60px;
+    padding:120px 24px 64px;
     text-align:center;
+    color:#fff;
     background:
-      radial-gradient(circle at 15% 20%, rgba(47,138,118,.14), transparent 55%),
-      radial-gradient(circle at 85% 0%, rgba(201,162,39,.12), transparent 50%);
+      linear-gradient(180deg, rgba(17,43,38,.80), rgba(17,43,38,.90)),
+      url('images/salon-bed.jpeg') center 35% / cover no-repeat;
   }
   .hero .kicker{
     display:inline-block;
-    font-size:12px;letter-spacing:.2em;color:var(--teal);
-    border:1px solid var(--teal);border-radius:999px;
+    font-size:12px;letter-spacing:.2em;color:#fff;
+    border:1px solid rgba(255,255,255,.55);border-radius:999px;
     padding:5px 16px;margin-bottom:22px;
   }
   .hero h1{
-    font-size:clamp(28px,5.5vw,44px);
-    color:var(--teal-deep);
+    font-size:clamp(30px,6vw,46px);
+    color:#fff;
     font-weight:800;
     letter-spacing:-.01em;
     margin-bottom:18px;
   }
   .hero p.lead{
-    font-size:15px;color:var(--text-soft);
-    max-width:480px;margin:0 auto 34px;
+    font-size:15.5px;color:rgba(255,255,255,.88);
+    max-width:500px;margin:0 auto 30px;
+  }
+  .stat-row{
+    display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+    margin:0 0 34px;
+  }
+  .stat-row .stat{
+    font-size:13px;font-weight:700;color:#fff;letter-spacing:.02em;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);
+    padding:8px 18px;border-radius:999px;
   }
   .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
   .btn{
@@ -90,6 +100,8 @@
   .btn:hover{transform:translateY(-2px);}
   .btn-primary{background:var(--teal-deep);color:#fff;}
   .btn-outline{border:1px solid var(--teal-deep);color:var(--teal-deep);}
+  .hero .btn-primary{background:#fff;color:var(--teal-deep);}
+  .hero .btn-outline{border-color:rgba(255,255,255,.8);color:#fff;}
 
   /* セクション共通 */
   section{padding:64px 0;}
@@ -102,6 +114,20 @@
   .section-title h2{
     font-size:25px;color:var(--teal-deep);font-weight:800;letter-spacing:-.01em;
   }
+
+  /* お悩み */
+  .concern-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  }
+  @media(max-width:700px){ .concern-grid{grid-template-columns:repeat(2,1fr);} }
+  .concern{
+    background:#fff;border:2px solid var(--teal-light);border-radius:14px;
+    padding:22px 14px;text-align:center;
+  }
+  .concern .mark{
+    font-size:26px;color:var(--teal-deep);font-weight:800;margin-bottom:10px;
+  }
+  .concern .label{font-size:13.5px;font-weight:700;color:var(--text);}
 
   /* ギャラリー */
   .gallery-grid{
@@ -218,9 +244,14 @@
 
 <section class="hero">
   <div class="wrap">
-    <span class="kicker">YOKOHAMA / TSURUGAMINE</span>
-    <h1>一つでも多くの<br class="sp">ご要望を叶えるサロン</h1>
-    <p class="lead">トータルボディケアサロン&出張施術Mint<br>整体・骨格矯正・小顔ケア・アロマリンパまで、<br>お身体とお心のお悩みにひとつずつ向き合います。</p>
+    <span class="kicker">YOKOHAMA TSURUGAMINE ・ 完全予約制サロン</span>
+    <h1>その肩こり・腰痛、<br class="sp">まだ我慢していませんか？</h1>
+    <p class="lead">骨格の歪みから原因を見極める本格整体。トータルボディケアサロン&出張施術Mintは、鶴ヶ峰で7年以上、忙しい毎日を過ごす方々のお身体とお心に向き合ってきました。</p>
+    <div class="stat-row">
+      <span class="stat">開業7年以上</span>
+      <span class="stat">口コミ評価 5.0</span>
+      <span class="stat">完全予約制・当日OK</span>
+    </div>
     <div class="cta-row">
       <a class="btn btn-primary" href="tel:09060218885">電話で予約 090-6021-8885</a>
       <a class="btn btn-outline" href="https://lin.ee/MO9ZdQy" target="_blank" rel="noopener">LINEで予約</a>
@@ -228,7 +259,19 @@
   </div>
 </section>
 
-<section style="padding-bottom:0;">
+<section>
+  <div class="wrap">
+    <div class="section-title"><span class="en">CONCERNS</span><h2>こんなお悩みありませんか？</h2></div>
+    <div class="concern-grid">
+      <div class="concern"><div class="mark">✓</div><div class="label">肩こり・首こり・腰痛</div></div>
+      <div class="concern"><div class="mark">✓</div><div class="label">骨盤・骨格の歪み</div></div>
+      <div class="concern"><div class="mark">✓</div><div class="label">顔・全身のむくみ</div></div>
+      <div class="concern"><div class="mark">✓</div><div class="label">忙しくて通院の時間がない</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;padding-bottom:0;">
   <div class="wrap">
     <div class="gallery-grid">
       <figure>
