@@ -234,15 +234,27 @@
   /* アクセス */
   .access-grid{
     display:grid;grid-template-columns:1fr 1fr;gap:28px;
-    background:#fff;border:1px solid #ece3cd;border-radius:18px;padding:34px;
+    background:#fff;border:2px solid var(--teal-light);border-radius:18px;padding:34px;
   }
   @media(max-width:700px){ .access-grid{grid-template-columns:1fr;} }
-  .access-grid dt{font-size:12px;color:var(--gold-text);letter-spacing:.1em;margin-bottom:4px;font-weight:600;}
-  .access-grid dd{font-size:14px;margin-bottom:20px;color:var(--text);}
-  .hours-table{width:100%;font-size:13px;border-collapse:collapse;}
-  .hours-table td{padding:5px 0;border-bottom:1px dashed #e8e0cc;}
-  .hours-table td:first-child{color:var(--text-soft);width:70px;}
-  .hours-table tr.closed td{color:#c0564f;}
+  .access-grid dt{font-size:12px;color:var(--gold-text);letter-spacing:.1em;margin-bottom:4px;font-weight:700;}
+  .access-grid dd{font-size:14.5px;margin-bottom:20px;color:var(--text);font-weight:600;}
+  .access-grid .info-box{
+    background:var(--cream);border-radius:14px;padding:22px;
+  }
+  .hours-title{
+    font-size:12px;color:var(--gold-text);letter-spacing:.1em;margin-bottom:12px;display:block;font-weight:700;
+  }
+  .hours-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;}
+  @media(max-width:480px){ .hours-grid{grid-template-columns:repeat(4,1fr);} }
+  .hours-grid .day{
+    background:var(--teal-deep);color:#fff;border-radius:10px;
+    padding:12px 2px;text-align:center;
+  }
+  .hours-grid .day.closed{background:#b24a43;}
+  .hours-grid .day .d{font-size:13px;font-weight:800;margin-bottom:8px;}
+  .hours-grid .day .t{font-size:10px;line-height:1.5;letter-spacing:-.02em;}
+  .hours-note{font-size:12px;color:var(--text-soft);margin-top:14px;}
   .map-box{
     margin-top:24px;border-radius:18px;overflow:hidden;
     border:1px solid #ece3cd;
@@ -431,7 +443,7 @@
   <div class="wrap">
     <div class="section-title"><span class="en">ACCESS</span><h2>アクセス・営業時間</h2></div>
     <div class="access-grid">
-      <div>
+      <div class="info-box">
         <dl>
           <dt>住所</dt>
           <dd>〒241-0022<br>神奈川県横浜市旭区鶴ケ峰1丁目7-10<br>3階 RoomA(水色扉)</dd>
@@ -441,17 +453,18 @@
           <dd>090-6021-8885(完全予約制)</dd>
         </dl>
       </div>
-      <div>
-        <dt style="color:var(--gold-text);font-size:12px;letter-spacing:.1em;margin-bottom:10px;display:block;font-weight:600;">営業時間</dt>
-        <table class="hours-table">
-          <tr><td>月</td><td>10:30 〜 22:00</td></tr>
-          <tr><td>火</td><td>10:30 〜 22:00</td></tr>
-          <tr><td>水</td><td>10:30 〜 22:00</td></tr>
-          <tr class="closed"><td>木</td><td>定休日</td></tr>
-          <tr><td>金</td><td>10:30 〜 22:00</td></tr>
-          <tr><td>土</td><td>10:30 〜 22:00</td></tr>
-          <tr><td>日</td><td>10:30 〜 22:00</td></tr>
-        </table>
+      <div class="info-box">
+        <span class="hours-title">営業時間</span>
+        <div class="hours-grid">
+          <div class="day"><div class="d">月</div><div class="t">10:30<br>〜22:00</div></div>
+          <div class="day"><div class="d">火</div><div class="t">10:30<br>〜22:00</div></div>
+          <div class="day"><div class="d">水</div><div class="t">10:30<br>〜22:00</div></div>
+          <div class="day closed"><div class="d">木</div><div class="t">定休日</div></div>
+          <div class="day"><div class="d">金</div><div class="t">10:30<br>〜22:00</div></div>
+          <div class="day"><div class="d">土</div><div class="t">10:30<br>〜22:00</div></div>
+          <div class="day"><div class="d">日</div><div class="t">10:30<br>〜22:00</div></div>
+        </div>
+        <p class="hours-note">完全予約制・当日のご予約もOK。出張施術は無休で対応しております。</p>
       </div>
     </div>
     <div class="map-box">
