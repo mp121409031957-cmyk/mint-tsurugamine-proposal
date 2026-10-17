@@ -17,10 +17,10 @@
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{
-    font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho",serif, -apple-system, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic","Meiryo",-apple-system,sans-serif;
     background:var(--cream);
     color:var(--text);
-    line-height:1.85;
+    line-height:1.8;
     -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:900px;margin:0 auto;padding:0 24px;}
@@ -46,11 +46,10 @@
     max-width:900px;margin:0 auto;padding:14px 24px;
     display:flex;align-items:center;justify-content:space-between;
   }
-  .brand{display:flex;align-items:center;gap:10px;font-size:18px;letter-spacing:.08em;color:var(--teal-deep);font-weight:600;}
-  .brand .leaf{
-    width:28px;height:28px;border-radius:50%;
-    background:linear-gradient(135deg,var(--teal),var(--gold));
-    display:inline-block;
+  .brand{display:flex;align-items:center;gap:10px;font-size:19px;letter-spacing:.04em;color:var(--teal-deep);font-weight:800;}
+  .brand img{
+    width:32px;height:32px;border-radius:50%;
+    object-fit:cover;display:inline-block;
   }
   nav ul{list-style:none;display:flex;gap:22px;font-size:13px;}
   nav a{color:var(--text-soft);text-decoration:none;}
@@ -71,9 +70,10 @@
     padding:5px 16px;margin-bottom:22px;
   }
   .hero h1{
-    font-size:clamp(26px,5vw,40px);
+    font-size:clamp(28px,5.5vw,44px);
     color:var(--teal-deep);
-    font-weight:600;
+    font-weight:800;
+    letter-spacing:-.01em;
     margin-bottom:18px;
   }
   .hero p.lead{
@@ -84,7 +84,7 @@
   .btn{
     display:inline-flex;align-items:center;gap:8px;
     padding:13px 26px;border-radius:999px;
-    font-size:14px;letter-spacing:.05em;text-decoration:none;
+    font-size:14px;font-weight:700;letter-spacing:.03em;text-decoration:none;
     transition:transform .15s ease;
   }
   .btn:hover{transform:translateY(-2px);}
@@ -97,10 +97,10 @@
     text-align:center;margin-bottom:44px;
   }
   .section-title .en{
-    display:block;font-size:11px;letter-spacing:.3em;color:var(--gold-text);margin-bottom:8px;font-weight:600;
+    display:block;font-size:11px;letter-spacing:.3em;color:var(--gold-text);margin-bottom:8px;font-weight:700;
   }
   .section-title h2{
-    font-size:24px;color:var(--teal-deep);font-weight:600;
+    font-size:25px;color:var(--teal-deep);font-weight:800;letter-spacing:-.01em;
   }
 
   /* ギャラリー */
@@ -152,7 +152,7 @@
     gap:16px;
   }
   .menu-row:last-child{border-bottom:none;}
-  .menu-row .name{font-size:15px;}
+  .menu-row .name{font-size:16px;font-weight:700;}
   .menu-row .desc{font-size:12px;color:var(--text-soft);display:block;margin-top:3px;}
   .menu-row .price{font-size:15px;color:var(--teal-deep);white-space:nowrap;font-weight:600;}
 
@@ -189,7 +189,7 @@
     background:var(--teal-deep);color:#fdfaf2;text-align:center;
     padding:56px 24px 40px;
   }
-  footer h3{font-size:20px;margin-bottom:12px;letter-spacing:.05em;}
+  footer h3{font-size:21px;font-weight:800;margin-bottom:12px;letter-spacing:.02em;}
   footer p{font-size:13px;color:#cfe3dc;margin-bottom:26px;}
   footer .btn-primary{background:#fff;color:var(--teal-deep);}
   footer .btn-outline{border-color:#fff;color:#fff;}
@@ -204,7 +204,7 @@
 
 <header>
   <div class="nav wrap">
-    <div class="brand"><span class="leaf"></span>Mint</div>
+    <div class="brand"><img src="images/logo.png" alt="Mint ロゴ">Mint</div>
     <nav>
       <ul>
         <li><a href="#about">サロンについて</a></li>
@@ -271,27 +271,32 @@
     <div class="section-title"><span class="en">MENU</span><h2>メニュー・料金(一例)</h2></div>
     <div class="menu-table">
       <div class="menu-row">
-        <div><div class="name">美容整体</div><span class="desc">骨格・骨盤の歪みを整え、スタイルアップへ</span></div>
-        <div class="price">¥6,600〜</div>
+        <div><div class="name">整体コース</div><span class="desc">整体・もみほぐし・タイ古式・ドライヘッド・顔ツボ(60分)</span></div>
+        <div class="price">¥8,800</div>
       </div>
       <div class="menu-row">
-        <div><div class="name">整顔矯正(小顔ケア)</div><span class="desc">顔のむくみ・歪みにアプローチ</span></div>
-        <div class="price">価格は要問合せ</div>
+        <div><div class="name">整体コース</div><span class="desc">同上(90分)</span></div>
+        <div class="price">¥12,100</div>
       </div>
       <div class="menu-row">
-        <div><div class="name">オイルリンパボディ</div><span class="desc">全身のだるさ・むくみをケア</span></div>
-        <div class="price">価格は要問合せ</div>
+        <div><div class="name">整体コース</div><span class="desc">同上(120分)</span></div>
+        <div class="price">¥15,400</div>
       </div>
       <div class="menu-row">
-        <div><div class="name">タイ古式・ヘッドケア</div><span class="desc">じっくりほぐす本格施術</span></div>
-        <div class="price">価格は要問合せ</div>
+        <div><div class="name">小顔・ボディリンパコース</div><span class="desc">小顔・ボディリンパ・オイルヘッド・リフレクソロジー(60分)</span></div>
+        <div class="price">¥9,900</div>
       </div>
       <div class="menu-row">
-        <div><div class="name">スマートケア(時短)</div><span class="desc">スキマ時間に、滞在時間から選べる</span></div>
-        <div class="price">¥1,100〜</div>
+        <div><div class="name">小顔・ボディリンパコース</div><span class="desc">同上(90分)</span></div>
+        <div class="price">¥13,200</div>
+      </div>
+      <div class="menu-row">
+        <div><div class="name">小顔・ボディリンパコース</div><span class="desc">同上(120分)</span></div>
+        <div class="price">¥16,500</div>
       </div>
     </div>
-    <p style="text-align:center;font-size:12px;color:var(--text-soft);margin-top:16px;">※掲載中の価格・メニュー名は要確認の仮情報です。正式公開前に最新のものへ差し替えます。</p>
+    <p style="text-align:center;font-size:12px;color:var(--gold-text);margin-top:16px;">☆お2人以上人数割あります！お2人目からお1人につき500円お引きいたします！</p>
+    <p style="text-align:center;font-size:12px;color:var(--text-soft);margin-top:4px;">※料金は税込価格です。当日予約OK・完全予約制。</p>
   </div>
 </section>
 
@@ -370,6 +375,8 @@
       <a href="https://www.ekiten.jp/shop_55750135/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">エキテン</a>
       ／
       <a href="https://okigaru.link/introduce/%E3%83%88%E3%83%BC%E3%82%BF%E3%83%AB%E3%83%9C%E3%83%87%E3%82%A3%E3%82%B1%E3%82%A2%E3%82%B5%E3%83%AD%E3%83%B3mint/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">OKIGARU</a>
+      ／
+      <a href="https://www.facebook.com/people/%E3%83%88%E3%83%BC%E3%82%BF%E3%83%AB%E3%83%9C%E3%83%87%E3%82%A3%E3%82%B1%E3%82%A2%E3%82%B5%E3%83%AD%E3%83%B3mint/100063155054819/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">Facebook</a>
     </p>
     <p class="copyright">トータルボディケアサロン&出張施術Mint ― このページはご提案用の試作デザインです</p>
   </div>
